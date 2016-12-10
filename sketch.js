@@ -1,9 +1,10 @@
 var ship;
 var h2o = [];
 var fire = [];
-
+var sX,eX,dX,dela=5;
+var d,n,n1,nt;
 function setup() {
-	document.getElementById("ver").innerHTML+="j1.1";
+	document.getElementById("ver").innerHTML+="j1.2";
   createCanvas(600,400);
   ship = new Ship();
   //fire = new Projectile(ship.x,ship.y);
@@ -42,15 +43,44 @@ function draw() {
   
   
   if(keyIsDown(RIGHT_ARROW)){
-    ship.move(3);
+    ship.move(2);
   }else if(keyIsDown(LEFT_ARROW)){
-    ship.move(-3);
+    ship.move(-2);
   }
 }
 
 
 function keyPressed(){
-  if(key === " "){
+  if(key === " "||keyCode===UP_ARROW){
     fire.push(new Projectile(ship.x,ship.y));
   }
 }
+
+function touchStarted(){
+	sX=touchX;
+	d=new Date();
+	n=d.getTime();
+}
+function touchMoved(){
+	eX=touchX;
+	dX=eX-sX;
+	if(dX>1){
+		ship.move(2);
+	}
+	if(dX<1){
+		ship.move(-2);
+	}
+	dela--;
+	if(dela<=0){
+	sX=eX;
+	dela=5;
+	}
+}
+function touchEnded(){
+	d=new Date();
+	n1=d.getTime();
+	nt=n1-n;
+	if(nt<=500){
+		fire.push(new Projectile(ship.x,ship.y));
+	}
+	}

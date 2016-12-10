@@ -6,6 +6,8 @@ function Ship(){
     rect(this.x, this.y,20,40);
   }
   this.move = function(dir){
+  	if(!(this.x+dir<0||this.x+dir>width-20)){
     this.x+=dir;
+  	}
   }
 }
