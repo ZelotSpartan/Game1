@@ -5,11 +5,12 @@ var sX,eX,dX,dela=5;
 var d,n,n1,nt;
 var fallingApart,pew;
 function preload(){
+	fallingApart=loadSound('FA.mp3');
 	pew = loadSound('pickup4.wav.mp3');
 	
 }
 function setup() {
-	document.getElementById("ver").innerHTML+="j1.4";
+	document.getElementById("ver").innerHTML+="j1.5";
   createCanvas(600,400);
   ship = new Ship();
   //fire = new Projectile(ship.x,ship.y);
@@ -89,4 +90,11 @@ function touchEnded(){
 	if(nt<=500){
 		fire.push(new Projectile(ship.x,ship.y));
 	}
+	}
+	function playFalling(){
+		if(!fallingApart.isPlaying()){
+		fallingApart.play();
+		}else{
+			fallingApart.stop();
+		}
 	}
