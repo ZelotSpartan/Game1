@@ -9,7 +9,7 @@ function preload(){
 	
 }
 function setup() {
-	document.getElementById("ver").innerHTML+="j1.5";
+	document.getElementById("ver").innerHTML+="j1.6";
   createCanvas(600,400);
   ship = new Ship();
   //fire = new Projectile(ship.x,ship.y);
@@ -88,5 +88,6 @@ function touchEnded(){
 	nt=n1-n;
 	if(nt<=500){
 		fire.push(new Projectile(ship.x,ship.y));
+    pew.play();
 	}
 	}

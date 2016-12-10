@@ -3,6 +3,7 @@ function Enemy(dir){
   this.y = 60;
   this.r = 30;
   this.show = function(){
+  		ellipseMode(CENTER);
     fill(0,0,255);
     ellipse(this.x,this.y,40,40);
     fill(255);
