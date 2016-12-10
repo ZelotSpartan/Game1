@@ -3,6 +3,7 @@ var h2o = [];
 var fire = [];
 
 function setup() {
+	document.getElementById("ver").innerHTML+="j1.1";
   createCanvas(600,400);
   ship = new Ship();
   //fire = new Projectile(ship.x,ship.y);
