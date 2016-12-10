@@ -3,8 +3,13 @@ var h2o = [];
 var fire = [];
 var sX,eX,dX,dela=5;
 var d,n,n1,nt;
+var fallingApart;
+function preload(){
+	fallingApart = loadSound('pickup4.wav.mp3');
+}
 function setup() {
-	document.getElementById("ver").innerHTML+="j1.2";
+	fallingApart.play();
+	document.getElementById("ver").innerHTML+="j1.3";
   createCanvas(600,400);
   ship = new Ship();
   //fire = new Projectile(ship.x,ship.y);
